@@ -7,6 +7,7 @@ class LoginPage extends Page {
     get passFld()         { return $('#password'); }
     get loginBtn()        { return $('button'); }
     get successMessage()  { return $('#flash'); }
+    //this is a comment
 
     loginWith(username, pass) {
         this.userFld.setValue(username);
