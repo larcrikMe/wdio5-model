@@ -57,6 +57,19 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
+    // capabilities: {
+    //     myChromeBrowser: {
+    //         capabilities: {
+    //             browserName: 'chrome'
+    //         }
+    //     },
+    //     myFirefoxBrowser: {
+    //         capabilities: {
+    //             browserName: 'firefox'
+    //         }
+    //     }
+    // },
+
     capabilities: [{
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
@@ -70,6 +83,7 @@ exports.config = {
             'prefs': {}
         }
     }],
+
     //
     // ===================
     // Test Configurations
@@ -133,14 +147,18 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    // reporters: ['spec', ['allure', {
-    //     outputDir: 'allure-results',
+    reporters: ['spec', ['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: false,
+    }]],
+    // reporters: ['spec', ['junit', {
+    //     outputDir: 'junit-results'}],
+    // ['allure', {
+    //     outputdir: 'allure-results',
     //     disableWebdriverStepsReporting: true,
     //     disableWebdriverScreenshotsReporting: false,
     // }]],
-    reporters: ['spec', ['junit', {
-        outputDir: 'allure-results'
-    }]],
  
     //
     // Options to be passed to Mocha.
